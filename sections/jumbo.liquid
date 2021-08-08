@@ -1,0 +1,164 @@
+<style>
+  #jumbo .titles h1{
+    color: {{ section.settings.jumbo_color_title }}
+  }
+  #jumbo .titles h2{
+    color: {{ section.settings.jumbo_color_subtitle }}
+  }
+</style>
+
+<section id="jumbo">
+  {% if section.settings.bg_type == 'video' %}
+    {% if section.settings.video_type == 'vimeo' %}
+      <iframe allowfullscreen="" class="bg-video" frameborder="0" mozallowfullscreen="" style="background: black;"
+        webkitallowfullscreen=""
+        src="//player.vimeo.com/video/{{ section.settings.video_id }}?title=0&amp;portrait=0&amp;byline=0&amp;autoplay=1&loop=1"></iframe>
+    {% else %}
+      <iframe class="bg-video" style="background: black; width="560" height="315" src="https://www.youtube.com/embed/{{ section.settings.video_id }}?autoplay=1&loop=1&controls=0&mute=1" frameborder="0" allowfullscreen></iframe>
+    {% endif %}
+  {% else %}
+    <div class="bg-image" style="background-image: url('{{ section.settings.bg_image | img_url: '900x'}}'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+  {% endif %}
+  <div class="transparent-color"></div>
+  <div class="titles">
+    <h1>{{ section.settings.jumbo_main_title }}</h1>
+    <h2>{{ section.settings.jumbo_subtitle }}</h2>
+  </div>
+  <div class="state">
+    <span class="number">01</span>
+  </div>
+  <div class="store-info">
+    <img src="assets/jumbobg.jpg">
+    <img src="assets/store.jpg">
+    <img src="assets/summer-girl.jpg">
+    <img src="assets/guymodel.jpg">
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Jumbo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Type"
+    },
+    {
+      "type": "radio",
+      "id": "bg_type",
+      "label": "Background Image or Background Video",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "video"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Choose a Background Image"
+    },
+    {
+      "type": "radio",
+      "id": "video_type",
+      "label": "YouTube or Vimeo Link",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "Youtube"
+        },
+        {
+          "value": "vimeo",
+          "label": "Vimeo"
+        }
+      ],
+      "default": "vimeo"
+    },
+    {
+      "type": "text",
+      "id": "video_id",
+      "label": "Video ID",
+      "default": "353546049"
+    },
+    {
+      "type": "header",
+      "content": "Background Titles"
+    },
+    {
+      "type": "text",
+      "id": "jumbo_main_title",
+      "label": "Jumbo Main Heading",
+      "default": "Off-White"
+    },
+    {
+      "type": "color",
+      "id": "jumbo_color_title",
+      "label": {
+        "da": "Baggrund",
+        "de": "Hintergrund",
+        "en": "Jumbo Heading Color",
+        "es": "Fondo",
+        "fi": "Tausta",
+        "fr": "Couleur de fond",
+        "hi": "पृष्ठभूमि",
+        "it": "Sfondo",
+        "ja": "背景",
+        "ko": "배경",
+        "nb": "Bakgrunn",
+        "nl": "Achtergrond",
+        "pt-BR": "Plano de fundo",
+        "pt-PT": "Fundo",
+        "sv": "Bakgrund",
+        "th": "พื้นหลัง",
+        "zh-CN": "背景",
+        "zh-TW": "背景"
+      },
+      "default": "#fff000"
+    },
+    {
+      "type": "text",
+      "id": "jumbo_subtitle",
+      "label": "Jumbo Sub Heading",
+      "default": "New Collection"
+    },
+    {
+      "type": "color",
+      "id": "jumbo_color_subtitle",
+      "label": {
+        "da": "Baggrund",
+        "de": "Hintergrund",
+        "en": "Jumbo Subheading Color",
+        "es": "Fondo",
+        "fi": "Tausta",
+        "fr": "Couleur de fond",
+        "hi": "पृष्ठभूमि",
+        "it": "Sfondo",
+        "ja": "背景",
+        "ko": "배경",
+        "nb": "Bakgrunn",
+        "nl": "Achtergrond",
+        "pt-BR": "Plano de fundo",
+        "pt-PT": "Fundo",
+        "sv": "Bakgrund",
+        "th": "พื้นหลัง",
+        "zh-CN": "背景",
+        "zh-TW": "背景"
+      },
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jumbo",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}
