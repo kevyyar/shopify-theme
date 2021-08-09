@@ -1,0 +1,97 @@
+<style>
+  #twoCollections .left-c .collection-title span {
+    color: {{ section.settings.collection1_heading_color }};
+  }
+
+  #twoCollections .left-c .left-c-img .overlay{
+    background: {{ section.settings.collection1_overlay_color }};
+  }
+
+  #twoCollections .right-c .right-c-bg {
+    background: {{ section.settings.collection2_overlay_color }};
+  }
+</style>
+
+{%- assign collection1 = collections[section.settings.collection_1] -%}
+{%- assign collection2 = collections[section.settings.collection_2] -%}
+
+<section class="twoCollections-section">
+  <div class="row">
+      <a href="{{ collection1.url }}" class="col-md-6 left-c" style="text-decoration: none;">
+          <div class="left-c-img">
+              <div class="overlay"></div>
+              <img src="{{ collection1.image | img_url: '500x' }}">
+          </div>
+          <span class="collection-title">
+              <span>
+                {{ collection1.title }}
+              </span>
+          </span>
+      </a>
+      <a href={{ collection2.url}} class="col-md-6 right-c" style="text-decoration: none;">
+          <div class="right-c-bg">
+              <div class="right-c-img">
+                  <img src="{{ collection2.image | img_url: '500x' }}">
+                  <span class="collection-title">
+                      <span style="color: {{ section.settings.collection2_heading_color }}">
+                         {{ collection2.title }}
+                      </span>
+                  </span>
+              </div>
+          </div>
+      </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Two Collections",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Choose Collections"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection 1"
+    },
+    {
+      "type": "color",
+      "id": "collection1_overlay_color",
+      "label": "Collection 1 Overlay Color",
+      "default": "#43EF09"
+    },
+    {
+      "type": "color",
+      "id": "collection1_heading_color",
+      "label": "Collection 1 Heading Color",
+      "default": "#1b1b1b"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection 2"
+    },
+    {
+      "type": "color",
+      "id": "collection2_overlay_color",
+      "label": "Collection 2 Overlay Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "collection2_heading_color",
+      "label": "Collection 2 Heading Color",
+      "default": "#1b1b1b"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Collections",
+      "category": "Collection"
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,102 @@
+<style>
+  #horizontal-sale .overlay .percent-number{
+    color: {{ section.settings.sale_percentage_color }};
+  }
+
+  #horizontal-sale .overlay .title{
+    color: {{ section.settings.sale_description_color }};
+  }
+
+  #horizontal-sale .overlay a{
+    color: {{section.settings.sale_button_text_color }};
+  }
+</style>
+
+{% assign bgColor = section.settings.background_color %}
+
+<section class="horizontal-sale-section"
+  style="background: url('{{ section.settings.sale_background | img_url: '900x' }}'); background-size: cover; height: 700px; width: 100%; background-position: center;">
+  <div class="overlay" style="background-color: {{ bgColor | color_modify:'alpha', 0.85 }}">
+    <span class="percent-number">
+      {{ section.settings.sale_percentage }}
+    </span>
+    <span class="title">
+      {{ section.settings.sale_description }}
+    </span>
+    <a href="{{ section.settings.sale_button_destination }}">
+      {{ section.settings.sale_button_text }}
+    </a>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Horizontal Sale",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Sale Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "sale_background",
+      "label": "Select Horizontal Sale Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Horizontal Background Overlay",
+      "default": "#7ab55c"
+    },
+    {
+      "type": "text",
+      "id": "sale_percentage",
+      "label": "Horizontal Sale Percentage",
+      "default": "80%"
+    },
+    {
+      "type": "color",
+      "id": "sale_percentage_color",
+      "label": "Horizontal Sale Percentage Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "sale_description",
+      "label": "Horizontal Sale Description",
+      "default": "Off Sale"
+    },
+    {
+      "type": "color",
+      "id": "sale_description_color",
+      "label": "Horizontal Sale Description Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "sale_button_text",
+      "label": "Horizontal Sale Button Text",
+      "default": "View"
+    },
+    {
+      "type": "color",
+      "id": "sale_button_text_color",
+      "label": "Horizontal Sale Button Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "url",
+      "id": "sale_button_destination",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Horizontal Sale",
+      "category": "Collection"
+    }
+  ]
+}
+
+{% endschema %}
