@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Debut",
-    "theme_author": "Shopify",
-    "theme_version": "16.5.5",
-    "theme_documentation_url": "https://help.shopify.com/manual/using-themes/themes-by-shopify/debut",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_name": "Final Theme",
+    "theme_author": "Kevin Barreto",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://kevinbarreto.xyz/final-theme-documentation",
+    "theme_support_url": "https://kevinbarreto.xyz/final-theme-support"
   },
   {
     "name": {
@@ -29,6 +29,38 @@
       "zh-TW": "色彩"
     },
     "settings": [
+      {
+        "type": "header",
+        "content": "Header and Mobile Menu"
+      },
+      {
+        "type": "color",
+        "id": "header_logo_color",
+        "label": "Color of Logo",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_menu_links",
+        "label": "Color of Links",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_bg_color",
+        "label": "Header and Mobile Background Color",
+        "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": "Theme Main Colors"
+      },
+      {
+        "type": "color",
+        "id": "highlight_color",
+        "label": "Highlight Color",
+        "default": "#ffff00"
+      },
       {
         "type": "header",
         "content": {
@@ -75,7 +107,7 @@
           "zh-CN": "标题和链接",
           "zh-TW": "標題和連結"
         },
-        "default": "#3a3a3a"
+        "default": "#1b1b1b"
       },
       {
         "type": "color",

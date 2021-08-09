@@ -3,6 +3,7 @@ let jumboNodes = document.querySelectorAll('.jumbo-section');
 let twoCollectionsNodes = document.querySelectorAll('.twoCollections-section');
 let horizontalSaleNodes = document.querySelectorAll('.horizontal-sale-section');
 let productsGroupNodes = document.querySelectorAll('.products-group-section');
+let homeActive = document.querySelector('.template-index');
 
 
 
@@ -12,10 +13,10 @@ headerTL
   .fromTo(
     "header",
     {
-      backgroundColor: "rgba(0,0,0,0)",
+      backgroundColor: '{{ settings.header_bg_color | color_modify: 'alpha', 0 }}',
     },
     {
-      backgroundColor: "rgba(0,0,0,1)",
+      backgroundColor: '{{ settings.header_bg_color | color_modify: 'alpha', 1 }}',
       duration: 0.4,
     }
   )
@@ -31,10 +32,10 @@ headerTL
     ">-.4"
   );
 let headerScene = new ScrollMagic.Scene({
-  triggerElement: ".jumbo-section",
-  triggerHook: 1,
+  triggerElement: "body",
+  triggerHook: 0,
   reverse: true,
-  offset: (document.querySelector(".jumbo-section").offsetHeight) + 100,
+  offset: homeActive != null ? document.querySelector("header").offsetHeight + 100 : 0,
   duration: 0,
   // duration: document.querySelector(".twoCollections-section").offsetHeight
 })

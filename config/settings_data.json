@@ -2,6 +2,12 @@
   "current": "Default",
   "presets": {
     "Default": {
+      "header_logo_color": "#ffffff",
+      "header_menu_links": "#ffffff",
+      "header_bg_color": "#000000",
+      "highlight_color": "#ffff00",
+      "color_text": "#1b1b1b",
+      "color_body_text": "#1b1b1b",
       "social_twitter_link": "https://twitter.com",
       "social_facebook_link": "https://facebook.com",
       "social_pinterest_link": "https://pinterest.com",
@@ -11,27 +17,43 @@
       "sections": {
         "header": {
           "type": "header",
-          "settings": {}
+          "settings": {
+            "logo_max_width": 100,
+            "main_linklist": "main-menu",
+            "message": false,
+            "home_page_only": true,
+            "message_text": "Announce something here",
+            "message_link": "",
+            "color_bg": "#3a3a3a",
+            "color_text": "#ffffff"
+          }
         },
         "jumbo": {
           "type": "jumbo",
-          "settings": {},
           "blocks": {
             "jumbo-0": {
               "type": "image",
-              "settings": {}
+              "settings": {
+                "bottom_image_destination": ""
+              }
             },
             "jumbo-1": {
               "type": "image",
-              "settings": {}
+              "settings": {
+                "bottom_image_destination": ""
+              }
             },
             "jumbo-2": {
               "type": "image",
-              "settings": {}
+              "settings": {
+                "bottom_image_destination": ""
+              }
             },
             "jumbo-3": {
               "type": "image",
-              "settings": {}
+              "settings": {
+                "bottom_image_destination": ""
+              }
             }
           },
           "block_order": [
@@ -39,25 +61,50 @@
             "jumbo-1",
             "jumbo-2",
             "jumbo-3"
-          ]
+          ],
+          "settings": {
+            "bg_type": "video",
+            "video_type": "vimeo",
+            "video_id": "353546049",
+            "jumbo_main_title": "Off-White",
+            "jumbo_color_title": "#fff000",
+            "jumbo_subtitle": "New Collection",
+            "jumbo_color_subtitle": "#ffffff"
+          }
         },
         "two_collections": {
           "type": "two_collections",
-          "settings": {}
+          "settings": {
+            "collection_1": "summer-sale",
+            "collection1_overlay_color": "#43EF09",
+            "collection1_heading_color": "#1b1b1b",
+            "collection_2": "trending",
+            "collection2_overlay_color": "#ffffff",
+            "collection2_heading_color": "#1b1b1b"
+          }
         },
         "horizontal_sale": {
           "type": "horizontal_sale",
-          "settings": {}
+          "settings": {
+            "sale_background": "shopify:\/\/shop_images\/dark-shirt-mens-fashion.jpg",
+            "background_color": "#444742",
+            "sale_percentage": "80%",
+            "sale_percentage_color": "#fff",
+            "sale_description": "Off Sale",
+            "sale_description_color": "#fff",
+            "sale_button_text": "View",
+            "sale_button_text_color": "#fff",
+            "sale_button_destination": ""
+          }
         },
         "products_group": {
           "type": "products_group",
-          "settings": {}
-        },
-        "hero-1": {
-          "type": "hero",
           "settings": {
-            "hero_size": "large",
-            "text_size": "large"
+            "collection": "yeezy",
+            "max_products": "4",
+            "product_hover_bg_color": "#000",
+            "product_hover_text_color": "#ffff00",
+            "background_color": "#66ff18"
           }
         },
         "feature-row": {
@@ -93,12 +140,6 @@
           "type": "collection",
           "settings": {
             "grid": 4
-          }
-        },
-        "hero-2": {
-          "type": "hero",
-          "settings": {
-            "text_size": "large"
           }
         },
         "quotes": {
@@ -154,14 +195,42 @@
           "blocks": {
             "footer-0": {
               "type": "link_list",
-              "settings": {}
+              "settings": {
+                "title": "Quick links",
+                "menu": "footer"
+              }
             }
           },
           "block_order": [
             "footer-0"
           ],
           "settings": {
-            "show_payment_icons": true
+            "color_footer_bg": "#1b1b1b",
+            "color_footer_text": "#f6f6f6",
+            "divider_line_color": "#ebebeb",
+            "footer_bottom_text": "Storename 23 Grand Ave, Los Angeles, California 11234"
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "1628518131dc6c3691": {
+          "type": "featured-product",
+          "settings": {
+            "featured_product": "yeezy-450-dark-slate",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": true,
+            "enable_payment_button": true,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
           }
         }
       },
@@ -169,7 +238,8 @@
         "jumbo",
         "two_collections",
         "horizontal_sale",
-        "products_group"
+        "products_group",
+        "1628518131dc6c3691"
       ]
     },
     "Light": {

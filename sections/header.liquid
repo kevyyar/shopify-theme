@@ -1,3 +1,9 @@
+<style>
+    .site-header__cart-count {
+        right: -5px;
+        top: 0px;
+    }
+</style>
 {% if section.settings.message %}
     <style>
         {% if section.settings.logo != blank %}
@@ -56,7 +62,7 @@
 </div>
 
 
-<header style="background-color: black;">
+<header>
     <div class="logo">
         {% if section.settings.logo %}
             {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -83,7 +89,7 @@
             <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
         {% endif %}
     </div>
-    <ul class="menu">
+    <ul class="menu mobile-mode">
         <!-- START MENU LOOP -->
         {% for link in linklists.main-menu.links %}
             {% assign child_list_handle = link.title | handleize %}
@@ -132,6 +138,9 @@
                 </a>
             </li>
         {% endif %}
+        <li class="open-mobile-menu">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </li>
     </ul>
 </header>
 
@@ -213,9 +222,6 @@
                         <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
                     </div>
                 </a>
-            </li>
-            <li class="open-mobile-menu">
-                <i class="fa fa-bars" aria-hidden="true"></i>
             </li>
         {% endif %}
     </ul>

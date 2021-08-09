@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
 
+{% assign header_font = settings.type_header_font %}
+{% assign base_font = settings.type_base_font %}
+
+{{ header_font | font_face }}
+{{ base_font | font_face }}
+
 *{
   box-sizing: border-box;
 }
+
 html, body{
-  font-family: 'Avenir Next Condensed', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: {{ base_font.family }},'Avenir Next Condensed', 'Source Sans Pro', Arial, Helvetica, sans-serif;
   background: #f4f7fd;
   overflow: hidden;
   width: 100vw;
@@ -13,7 +20,14 @@ html, body{
 
 h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Avenir Next Condensed', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  color: {{ settings.color_text }};
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: {{ header_font.family }};
+  font-weight: {{ header_font.weight }};
+}
+
 
 a {
   text-decoration: none;
@@ -33,7 +47,7 @@ header .logo a{
   font-weight: 600;
   font-size: 2rem;
   text-decoration: none;
-  color: white;
+  color: {{ settings.header_logo_color }};
   text-transform: uppercase;
   display: block;
 }
@@ -49,7 +63,7 @@ header .menu .open-mobile-menu{
 }
 header .menu.mobile-mode .open-mobile-menu{
   display: block;
-  color: white;
+  color: {{ settings.header_menu_links }};
 }
 header .menu.mobile-mode .open-mobile-menu {
   display: block;
@@ -65,7 +79,7 @@ header .menu a{
   display: inline-block;
   font-weight: 400;
   text-decoration: none;
-  color: white;
+  color: {{ settings.header_menu_links }};
   text-transform: uppercase;
 }
 header .menu .link{
@@ -144,7 +158,7 @@ header .menu .dropdown .sub-menu a{
 }
 .jumbo-section .titles h1{
   font-size: 7rem;
-  color: #ffff00;
+  color: {{ settings.highlight_color }};
   font-weight: 900;
   text-transform: uppercase;
   transform: translate3d(100px, 0,0);
@@ -310,7 +324,7 @@ header .menu .dropdown .sub-menu a{
 }
 .horizontal-sale-section .overlay a:hover{
   color: black;
-  background: #ffff00;
+  background: {{ settings.highlight_color }};
 }
 
 .products-group-section{
@@ -354,7 +368,7 @@ header .menu .dropdown .sub-menu a{
   transition: all .2s ease-in-out;
   opacity: 0;
   cursor: pointer;
-  color: #ffff00;
+  color: {{ settings.highlight_color }};
 }
 .products-group-section .product-bg .overlay:hover{
   opacity: 1;
@@ -375,7 +389,7 @@ footer{
   overflow: hidden;
 }
 footer .footer-menu .menu-title, footer .social-title{
-  color: #ffff00;
+  color: {{ settings.highlight_color }};
   font-size: 1.2rem;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -404,7 +418,7 @@ footer .social-icons a{
   transition: all .3s ease-in-out;
 }
 footer .social-icons a:hover{
-  color: #ffff00;
+  color: {{ settings.highlight_color }};
   background: black;
 }
 
@@ -415,8 +429,13 @@ footer .address{
   width: 100%;
 }
 
+.content-wrapper {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 #mobile-menu{
-  background: black;
+  background: {{ settings.header_bg_color }};
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -437,7 +456,7 @@ footer .address{
 }
 
 #mobile-menu .logo a{
-  color: white;
+  color: {{ settings.header_logo_color }};
   text-transform: uppercase;
 }
 .close-mobile-menu{
@@ -448,7 +467,7 @@ footer .address{
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  color: white;
+  color: {{ settings.header_menu_links }};
   position: absolute;
   right: 0;
   top: -5px;
@@ -458,7 +477,7 @@ footer .address{
   margin-bottom: 1rem;
 }
 #mobile-menu .menu > li > a{
-  color: #ffff00;
+  color: {{ settings.header_menu_links }};
   font-size: 1.2rem;
   display: block;
   /* border-bottom: 1px solid white; */
@@ -477,7 +496,7 @@ footer .address{
 } */
 
 #mobile-menu .menu > li.dropdown .sub-menu a{
-  color: white;
+  color: {{ settings.header_menu_links }};
   font-size: 1.2rem;
   display: inline-block;
   border-bottom: none;
